@@ -2,7 +2,7 @@
 
 > An example built using these steps can be found [here](https://github.com/realStandal/redwoodjs-twin-emotion-example).
 
-Setting up [Twin.Macro]((https://github.com/ben-rogerson/twin.macro)) and [Emotion](https://emotion.sh/) in a RedwoodJS project is very straight-forward. Most of the steps from the [`twin-react-emotion`](https://github.com/ben-rogerson/twin.examples/tree/master/react-emotion) example apply to its use with Redwood.
+Setting up [Twin.Macro](https://github.com/ben-rogerson/twin.macro) and [Emotion](https://emotion.sh/) in a RedwoodJS project is very straight-forward. Most of the steps from the [`twin-react-emotion`](https://github.com/ben-rogerson/twin.examples/tree/master/react-emotion) example apply to its use with Redwood.
 
 By the end of this guide, you'll have a RedwoodJS application which lets you write components using Emotion, with styles powered by [TailwindCSS](https://tailwindcss.com/), made-easy via Twin.Macro.
 
