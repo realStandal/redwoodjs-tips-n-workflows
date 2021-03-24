@@ -8,7 +8,7 @@ By the end of this guide, you'll have a RedwoodJS application which lets you wri
 
 - [RedwoodJS using Twin.Macro & Emotion](#redwoodjs-using-twinmacro--emotion)
 - [Setup](#setup)
-  - [RedwoodJS](#redwoodjs)
+  - [RedwoodJS and TailwindCSS](#redwoodjs-and-tailwindcss)
   - [Babel](#babel)
   - [Twin and Emotion](#twin-and-emotion)
 - [Code-Modification](#code-modification)
@@ -25,7 +25,7 @@ By the end of this guide, you'll have a RedwoodJS application which lets you wri
 
 Generating a RedwoodJS project and installing dependencies to meet Twin's needs.
 
-## RedwoodJS
+## RedwoodJS and TailwindCSS
 
 > To test features and show-off where Redwood is at, I'll be generating the new project using TypeScript; the steps to reproduce using JavaScript should be relatively the same, minus the explicit "TypeScript" section found later. You'll ofcourse want to skip the `--no-javascript` flag below, if so.
 
