@@ -41,7 +41,13 @@ describe('FormTest', () => {
 
     expect(onSubmit).toHaveBeenCalledTimes(1)
     expect(onSubmit).toHaveBeenCalled()
-    expect(onSubmit).toHaveBeenCalledWith({ name, nickname })
+    expect(onSubmit).toHaveBeenCalledWith(
+      { name, nickname },
+      expect.objectContaining({
+        _reactName: 'onSubmit',
+        type: 'submit',
+      })
+    )
   })
 
   it('submits with the expected, entered data', async () => {
@@ -62,6 +68,12 @@ describe('FormTest', () => {
 
     expect(onSubmit).toHaveBeenCalledTimes(1)
     expect(onSubmit).toHaveBeenCalled()
-    expect(onSubmit).toHaveBeenCalledWith({ name, nickname })
+    expect(onSubmit).toHaveBeenCalledWith(
+      { name, nickname },
+      expect.objectContaining({
+        _reactName: 'onSubmit',
+        type: 'submit',
+      })
+    )
   })
 })
