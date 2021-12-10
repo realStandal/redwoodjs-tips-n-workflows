@@ -1,6 +1,7 @@
-# My [RedwoodJS](https://redwoodjs.com/) Tips & Workflows
+# RedwoodJS - Tips & Workflows
 
-These are step-by-steps which I'd consider "rough", jotted-down notes while I've been using the RedwoodJS framework.
+These are step-by-steps which I consider rough, jotted-down notes I've taken while using the [RedwoodJS framework](https://redwoodjs.com/).
+Many of these documents may also be found on the [RedwoodJS forum](https://community.redwoodjs.com/u/realstandal/activity/topics).
 
 ## Table of Contents
 
