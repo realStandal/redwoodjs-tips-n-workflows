@@ -8,6 +8,7 @@ They are all written in TypeScript.
 * [`valLatin`](#valLatin)
 * [`valLen`](#valLen)
 * [`valUUID`](#valUUID)
+* [`valArrayContains`](#valArrayContains)
 
 #### `valLatin`
 
