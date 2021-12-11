@@ -5,8 +5,8 @@ Functions and small sets of functions which are entirely application and framewo
 While these functions are not dependent on RedwoodJS themselves, they are built for the environments which RedwoodJS takes advantage of.
 
 * [**Vanilla JS**](#vanilla-js) - Functions made using just JavaScript (TypeScript) - no browser or runtime specific dependencies.
-* [**Web**](#web) - Functions which are intended to run on [modern browsers](https://stackoverflow.com/questions/50829693/what-is-a-modern-browser).
 * [**NodeJS**](#nodejs) - Functions which require the [NodeJS](https://nodejs.dev/) runtime.
+* [**Web**](#web) - Functions which are intended to run on [modern browsers](https://stackoverflow.com/questions/50829693/what-is-a-modern-browser).
 
 ### Vanilla JS
 
