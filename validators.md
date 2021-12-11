@@ -3,6 +3,8 @@
 Below are code-snippets for a few, application-agnostic [Service Validators](https://redwoodjs.com/docs/services.html#service-validations).
 They are all written in TypeScript.
 
+Some have a dependency on code not provided by RedwoodJS. This imports or code-snippets are included, install any packages from NPM as necessary.
+
 ### Table of Contents
 
 * [`valLatin`](#valLatin)
