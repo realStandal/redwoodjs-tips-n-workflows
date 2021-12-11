@@ -7,62 +7,8 @@ Some have a dependency on code not provided by RedwoodJS. These imports or code-
 
 ### Table of Contents
 
-* [`valLatin`](#valLatin)
-* [`valLen`](#valLen)
 * [`valUUID`](#valUUID)
 * [`valArrayContains`](#valArrayContains)
-
-#### `valLatin`
-
-```TypeScript
-import { validate } from '@redwoodjs/api'
-
-/**
- * Ensures `val` is a string of (modern) [latin characters](https://en.wikipedia.org/wiki/Latin_alphabet).
- *
- * @param val The value to validate
- * @param message A string prepended to error messages.
- * @param between A minimum and maximum length
- *
- * @throws
- * * 'message.length' - When `val.length` is not `between`.
- * * 'message.invalid' - When `val` contains a non-latin character.
- */
-export const valLatin = (
-  val: unknown,
-  message: string,
-  between: [number, number] = [0, 50]
-) =>
-  validate(val, {
-    length: { between, message: `${message}.length` },
-    format: { pattern: /^[A-Za-z]+$/, message: `${message}.invalid` },
-  })
-```
-
-#### `valLen`
-
-```TypeScript
-import { validate } from '@redwoodjs/api'
-
-/**
- * Convenience wrapper around [`validate(val, { length: ... })`](https://redwoodjs.com/docs/services.html#length).
- *
- * @param val The value to validate
- * @param message A string prepended to error messages.
- * @param between A minimum and maximum length
- *
- * @throws
- * * 'message.length' - When `val.length` is not `between`.
- */
-export const valLen = (
-  val: unknown,
-  message: string,
-  between: [number, number] = [0, 50]
-) =>
-  validate(val, {
-    length: { between, message: `${message}.length` },
-  })
-```
 
 #### `valUUID`
 
