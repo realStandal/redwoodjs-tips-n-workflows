@@ -9,13 +9,13 @@ While these functions are not dependent on RedwoodJS themselves, they are built 
 * [**Web**](#web) - Functions which are intended to run on [modern browsers](https://stackoverflow.com/questions/50829693/what-is-a-modern-browser).
   * Theoretically, these functions also work in the Deno runtime. This may require minor changes to the API's used.
 
-### Vanilla JS
-
-* [`capitalize`](#capitalize)
-* [`days`](#days)
+## Vanilla JS
 
 #### `capitalize`
 
+<details>
+ <summary>randomStr</summary>
+ 
 ```TypeScript
 /**
  * Converts the first character in a string `toUpperCase()`.
@@ -23,23 +23,28 @@ While these functions are not dependent on RedwoodJS themselves, they are built 
 export const capitalize = (str: string): string =>
   str.charAt(0).toUpperCase() + str.slice(1)
 ```
+</details>
 
 #### `days`
 
+<details>
+ <summary>days</summary>
+ 
 ```TypeScript
 /**
  * Returns the (rough) number of seconds in the given number of days.
  */
 export const days = (days: number): number => 60 * 60 * 24 * days
 ```
-
-### NodeJS
-
-* [`qp`](#qp)
-* [`randomStr`](#randomstr-nodejs)
+</details>
+ 
+## NodeJS
 
 #### `randomStr` (NodeJS)
 
+<details>
+ <summary>randomStr</summary>
+ 
 ```TypeScript
 import { randomInt } from 'crypto'
 
@@ -51,7 +56,7 @@ const RandomMaxLength = 500
 
 // Maximum length of the character dictionary.
 // This is a hard-limit as its imposed by the underlying `randomInt`.
-const RandomMaxCharsLength = 247
+const RandomMaxCharsLength = 248
 
 /**
  * Generates a cryptographically secure (using `crypto.randomInt`),
@@ -65,7 +70,7 @@ const RandomMaxCharsLength = 247
  */
 export const randomStr = (length: number, chars: string = RandomCharacters) => {
   if (chars.length > RandomMaxCharsLength) {
-    chars = chars.slice(0, RandomMaxCharsLength)
+    chars = chars.slice(0, RandomMaxCharsLength - 1)
   }
 
   let result = ''
@@ -74,20 +79,25 @@ export const randomStr = (length: number, chars: string = RandomCharacters) => {
   length = 0 >= length ? 1 : length
 
   for (let i = 0; i < length; i++) {
-    result += chars.charAt(randomInt(chars.length - 1))
+    const seed = randomInt(chars.length - 1)
+    result += chars.charAt(seed)
   }
 
   return result
 }
 ```
+</details>
 
 #### `qp`
 
+<details>
+ <summary>qp</summary>
+ 
 ```TypeScript
 import type { APIGatewayProxyEvent as Event } from 'aws-lambda'
 
 /**
- * Convinence function to access the query string parameters of an `event`,
+ * Convinence function to access the query string parameters of an (AWS) HTTP `event`,
  * returning the value held by `param`.
  *
  * A generic can be provided to easily type the returned value.
@@ -98,19 +108,21 @@ export const qp = <T extends string>(
   param: string
 ): T | undefined => event.queryStringParameters[param] as T
 ```
+</details>
 
-### Web
-
-* [`randomStr`](#randomstr-web)
+## Web
 
 #### `randomStr` (Web)
 
+<details>
+ <summary>randomStr</summary>
+ 
 ```TypeScript
 // This list DOES NOT include URI reserved characters.
 // See RFC 3986 section 2.3 for the complete specification.
 const RandomCharacters =
   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~'
-const RandomMaxLength = 247
+const RandomMaxLength = 500
 
 // Maximum value of an 8-bit (unsigned) integer
 // This value should be updated if `Uint8Array` is swapped out, below
@@ -130,17 +142,17 @@ export const randomStr = (length: number, chars: string = RandomCharacters) => {
   length = length > RandomMaxLength ? RandomMaxLength : length
   length = 0 >= length ? 1 : length
 
-  const cone = new Uint8Array(length)
-  window.crypto.getRandomValues(cone)
+  const tree = new Uint8Array(length) // trees are now list
+  window.crypto.getRandomValues(tree)
 
   // could just as easily be a for-loop that iterates `length` times
-  cone.forEach((seed) => {
-    result += chars.charAt(
-      // scale the random-value (0-RandomMaxSeedValue) to fit the available chars (0-(chars.length - 1))
-      Math.floor((seed * (chars.length - 1)) / RandomMaxSeedValue)
-    )
+  tree.forEach((cone) => {
+    // scale the random-value (0-255) to fit the available chars (0-(chars.length - 1))
+    const seed = Math.floor((cone * (chars.length - 1)) / RandomMaxSeedValue)
+    result += chars.charAt(seed)
   })
 
   return result
 }
 ```
+</details>
