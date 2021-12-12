@@ -35,6 +35,7 @@ export const days = (days: number): number => 60 * 60 * 24 * days
 
 ### NodeJS
 
+* [`qp`](#qp)
 * [`randomStr`](#randomStr-nodejs)
 
 #### `randomStr` (NodeJS)
@@ -53,7 +54,8 @@ const RandomMaxLength = 500
 const RandomMaxCharsLength = 247
 
 /**
- * Generates a cryptographically secure (using `crypto.randomInt`), random string of characters using `chars` as the dictionary of available characters.
+ * Generates a cryptographically secure (using `crypto.randomInt`),
+ * random string of characters using `chars` as the dictionary of available characters.
  * By default, `chars` contains all RFC-3986 unreserved URI characters (A-z,1-9,-._~).
  *
  * **Note:** The maximum number of characters which may be present in the dictionary is `247`.
@@ -79,6 +81,24 @@ export const randomStr = (length: number, chars: string = RandomCharacters) => {
 }
 ```
 
+#### `qp`
+
+```TypeScript
+import type { APIGatewayProxyEvent as Event } from 'aws-lambda'
+
+/**
+ * Convinence function to access the query string parameters of an `event`,
+ * returning the value held by `param`.
+ *
+ * A generic can be provided to easily type the returned value.
+ * The given type must extend `string`.
+ */
+export const qp = <T extends string>(
+  event: Event,
+  param: string
+): T | undefined => event.queryStringParameters[param] as T
+```
+
 ### Web
 
 * [`randomStr`](#randomStr-web)
@@ -97,7 +117,8 @@ const RandomMaxLength = 247
 const RandomMaxSeedValue = 255
 
 /**
- * Generates a cryptographically secure (using `window.crypto.getRandomValues`), random string of characters using `chars` as the dictionary of available characters.
+ * Generates a cryptographically secure (using `window.crypto.getRandomValues`),
+ * random string of characters using `chars` as the dictionary of available characters.
  * By default, `chars` contains all RFC-3986 unreserved URI characters (A-z,1-9,-._~).
  *
  * @param {number} length Must be greater than 0 and less than 500.
