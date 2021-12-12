@@ -25,12 +25,12 @@ import { validate, validateWith } from '@redwoodjs/api'
  */
 export const valUUID = (val: unknown, message: string) => {
   validate(val, {
-    presence: { message: `${message}.id.required` },
+    presence: { message: `${message}.required` },
   })
 
   validateWith(() => {
     if (typeof val !== 'string' || !validateUUID(val))
-      throw `${message}.id.invalid`
+      throw `${message}.invalid`
   })
 }
 ```
