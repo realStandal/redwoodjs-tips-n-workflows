@@ -9,12 +9,16 @@ While these functions are not dependent on RedwoodJS themselves, they are built 
 * [**Web**](#web) - Functions which are intended to run on [modern browsers](https://stackoverflow.com/questions/50829693/what-is-a-modern-browser).
   * Theoretically, these functions also work in the Deno runtime. This may require minor changes to the API's used.
 
+Functions defined here try to only depend upon the platform which they are designed for. Any deviance from this path are noted.
+
 ## Vanilla JS
 
 #### `capitalize`
 
+Conver the first character in a string `toUpperCase`.
+
 <details>
- <summary>randomStr</summary>
+ <summary>Show Code</summary>
  
 ```TypeScript
 /**
@@ -27,8 +31,10 @@ export const capitalize = (str: string): string =>
 
 #### `days`
 
+Get the (rough) number of seconds in `days`.
+
 <details>
- <summary>days</summary>
+ <summary>Show Code</summary>
  
 ```TypeScript
 /**
@@ -40,10 +46,12 @@ export const days = (days: number): number => 60 * 60 * 24 * days
  
 ## NodeJS
 
-#### `randomStr` (NodeJS)
+#### `randomStr`
+
+Generate a cryptographically-secure* random string using characters from a provided, or default, dictionary.
 
 <details>
- <summary>randomStr</summary>
+ <summary>Show Code</summary>
  
 ```TypeScript
 import { randomInt } from 'crypto'
@@ -89,9 +97,11 @@ export const randomStr = (length: number, chars: string = RandomCharacters) => {
 </details>
 
 #### `qp`
+ 
+Convinence function to access  the query string parameters of an (AWS) HTTP event.
 
 <details>
- <summary>qp</summary>
+ <summary>Show Code</summary>
  
 ```TypeScript
 import type { APIGatewayProxyEvent as Event } from 'aws-lambda'
@@ -112,10 +122,12 @@ export const qp = <T extends string>(
 
 ## Web
 
-#### `randomStr` (Web)
+#### `randomStr`
 
+Generate a cryptographically-secure* random string using characters from a provided, or default, dictionary.
+ 
 <details>
- <summary>randomStr</summary>
+ <summary>Show Code</summary>
  
 ```TypeScript
 // This list DOES NOT include URI reserved characters.
@@ -156,3 +168,8 @@ export const randomStr = (length: number, chars: string = RandomCharacters) => {
 }
 ```
 </details>
+
+ ---
+ 
+ > \* - The generated string will have all the nessecary steps taken to ensure high-entropy generation, given the constraints imposed by the respective environments and access to entropic data provided by the underlying machine.
+ 
