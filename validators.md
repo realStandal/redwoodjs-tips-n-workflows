@@ -7,33 +7,8 @@ Some have a dependency on code not provided by RedwoodJS. These imports or code-
 
 ### Table of Contents
 
-* [`valUUID`](#valUUID)
 * [`valArrayContains`](#valArrayContains)
-
-#### `valUUID`
-
-```TypeScript
-import { validate as validateUUID } from 'uuid'
-import { validate, validateWith } from '@redwoodjs/api'
-
-/**
- * @param val
- * @param message A string to be appended to the `message` of validation errors.
- * @throws
- * * `message.id.required` - When `val` is `undefined`.
- * * `message.id.invalid` - When `val` is not a `string` or valid UUID.
- */
-export const valUUID = (val: unknown, message: string) => {
-  validate(val, {
-    presence: { message: `${message}.required` },
-  })
-
-  validateWith(() => {
-    if (typeof val !== 'string' || !validateUUID(val))
-      throw `${message}.invalid`
-  })
-}
-```
+* [`valUUID`](#valUUID)
 
 ### `valArrayContains`
 
@@ -64,6 +39,56 @@ export const valArrayContains = <T = unknown>(
   validateWith(() => {
     if (val.some((arrayVal) => !allowed.includes(arrayVal)))
       throw `${message}.allowed`
+  })
+}
+```
+
+#### `valObjectId`
+
+```TypeScript
+import { ObjectId } from 'bson'
+import { validate, validateWith } from '@redwoodjs/api'
+
+/**
+ * Validates the given `val` is a valid BSON ObjectId.
+ *
+ * @param val
+ * @param message A string to be appended to the `message` of validation errors.
+ * @throws
+ * * `message.required` - When `val` is `undefined`.
+ * * `message.invalid` - When `val` is not a `string` or valid BSON ObjectId.
+ */
+export const valObjectId = (val: unknown, message: string) => {
+  validate(val, { presence: { message: `${message}.required` } })
+
+  validateWith(() => {
+    if (typeof val !== 'string' || !ObjectId.isValid(val))
+      throw `${message}.invalid`
+  })
+}
+```
+
+#### `valUUID`
+
+```TypeScript
+import { validate as validateUUID } from 'uuid'
+import { validate, validateWith } from '@redwoodjs/api'
+
+/**
+ * Validates the given `val` is a valid UUID.
+ *
+ * @param val
+ * @param message A string to be appended to the `message` of validation errors.
+ * @throws
+ * * `message.required` - When `val` is `undefined`.
+ * * `message.invalid` - When `val` is not a `string` or valid UUID.
+ */
+export const valUUID = (val: unknown, message: string) => {
+  validate(val, { presence: { message: `${message}.required` } })
+
+  validateWith(() => {
+    if (typeof val !== 'string' || !validateUUID(val))
+      throw `${message}.invalid`
   })
 }
 ```
