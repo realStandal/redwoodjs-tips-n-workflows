@@ -5,13 +5,11 @@ They are all written in TypeScript.
 
 Some have a dependency on code not provided by RedwoodJS. These imports or code-snippets are included, install any packages from NPM as necessary.
 
-### Table of Contents
-
-* [`valArrayContains`](#valArrayContains)
-* [`valUUID`](#valUUID)
-
 ### `valArrayContains`
 
+<details>
+ <summary>Show Code</summary>
+ 
 ```TypeScript
 import { validateWith } from '@redwoodjs/api'
 
@@ -42,8 +40,12 @@ export const valArrayContains = <T = unknown>(
   })
 }
 ```
+</details>
 
 #### `valObjectId`
+
+<details>
+ <summary>Show Code</summary>
 
 ```TypeScript
 import { ObjectId } from 'bson'
@@ -67,9 +69,13 @@ export const valObjectId = (val: unknown, message: string) => {
   })
 }
 ```
+</details>
 
 #### `valUUID`
-
+  
+<details>
+ <summary>Show Code</summary>
+ 
 ```TypeScript
 import { validate as validateUUID } from 'uuid'
 import { validate, validateWith } from '@redwoodjs/api'
@@ -92,3 +98,4 @@ export const valUUID = (val: unknown, message: string) => {
   })
 }
 ```
+</details>
