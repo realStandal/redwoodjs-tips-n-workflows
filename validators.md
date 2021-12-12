@@ -43,6 +43,8 @@ export const valArrayContains = <T = unknown>(
 </details>
 
 #### `valObjectId`
+ 
+Validate a value is a [BSON](https://docs.mongodb.com/manual/reference/method/ObjectId/) `ObjectId`.
 
 <details>
  <summary>Show Code</summary>
@@ -55,10 +57,7 @@ import { validate, validateWith } from '@redwoodjs/api'
  * Validates the given `val` is a valid BSON ObjectId.
  *
  * @param val
- * @param message A string to be appended to the `message` of validation errors.
- * @throws
- * * `message.required` - When `val` is `undefined`.
- * * `message.invalid` - When `val` is not a `string` or valid BSON ObjectId.
+ * @param message An error message when `val` is not a BSON ObjectId.
  */
 export const valObjectId = (val: unknown, message: string) => {
   validate(val, { presence: { message: `${message}.required` } })
@@ -72,6 +71,8 @@ export const valObjectId = (val: unknown, message: string) => {
 </details>
 
 #### `valUUID`
+ 
+Validate a value is a [v4 UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)).
   
 <details>
  <summary>Show Code</summary>
@@ -81,21 +82,14 @@ import { validate as validateUUID } from 'uuid'
 import { validate, validateWith } from '@redwoodjs/api'
 
 /**
- * Validates the given `val` is a valid UUID.
+ * Validates the given `val` is a valid v4 UUID.
  *
  * @param val
- * @param message A string to be appended to the `message` of validation errors.
- * @throws
- * * `message.required` - When `val` is `undefined`.
- * * `message.invalid` - When `val` is not a `string` or valid UUID.
+ * @param message An error message when `val` is not a v4 UUID.
  */
-export const valUUID = (val: unknown, message: string) => {
-  validate(val, { presence: { message: `${message}.required` } })
-
+export const valUUID = (val: unknown, message: string) =>
   validateWith(() => {
-    if (typeof val !== 'string' || !validateUUID(val))
-      throw `${message}.invalid`
+    if (typeof val !== 'string' || !validateUUID(val)) throw message
   })
-}
 ```
 </details>
