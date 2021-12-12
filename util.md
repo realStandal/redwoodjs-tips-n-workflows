@@ -36,7 +36,7 @@ export const days = (days: number): number => 60 * 60 * 24 * days
 ### NodeJS
 
 * [`qp`](#qp)
-* [`randomStr`](#randomStr-nodejs)
+* [`randomStr`](#randomstr-nodejs)
 
 #### `randomStr` (NodeJS)
 
@@ -101,7 +101,7 @@ export const qp = <T extends string>(
 
 ### Web
 
-* [`randomStr`](#randomStr-web)
+* [`randomStr`](#randomstr-web)
 
 #### `randomStr` (Web)
 
