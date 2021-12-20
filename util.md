@@ -15,7 +15,7 @@ Functions defined here try to only depend upon the platform which they are desig
 
 #### `capitalize`
 
-Conver the first character in a string `toUpperCase`.
+Convert the first character in a string `toUpperCase`.
 
 <details>
  <summary>Show Code</summary>
@@ -27,6 +27,22 @@ Conver the first character in a string `toUpperCase`.
 export const capitalize = (str: string): string =>
   str.charAt(0).toUpperCase() + str.slice(1)
 ```
+</details>
+
+#### `lowercase`
+
+Convert the first character in a string `toLowerCase`.
+
+<details>
+ <summary>Show Code</summary>
+ 
+ ```TypeScript
+/**
+  * Convert the first character in a string `toLowerCase`.
+  */
+const lowercase = (str: string): string =>
+  str.charAt(0).toLowerCase() + str.slice(1)
+ ```
 </details>
 
 #### `days`
