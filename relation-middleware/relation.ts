@@ -25,17 +25,6 @@ export type RelationActionMap = Partial<{
  */
 export interface RelationOptions {
   /**
-   * A map detailing not only the supported `PrismaActions`, but also where, given an action, will `tenantIdField` be added.
-   * Actions may choose to reference `tenantIdField` either by: passing the value as a `data` argument
-   * or by adding it to an existing `where` argument.
-   *
-   * Note: If an action only supports `where` using a model's unique fields, it is your responsibility
-   * to ensure `tenantIdField` is unique and can be used.
-   *
-   * Typically, the default value is sufficient for most use-cases.
-   */
-  // actions?: RelationActionMap
-  /**
    * This option can be used to disable updating a created model's `idField`, once it has been created.
    *
    * Setting this option to `false` will allow you to overwrite the value given by the middleware during creation.
