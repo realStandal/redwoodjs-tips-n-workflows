@@ -44,21 +44,6 @@ const lowercase = (str: string): string =>
   str.charAt(0).toLowerCase() + str.slice(1)
  ```
 </details>
-
-#### `days`
-
-Get the (rough) number of seconds in `days`.
-
-<details>
- <summary>Show Code</summary>
- 
-```TypeScript
-/**
- * Returns the (rough) number of seconds in the given number of days.
- */
-export const days = (days: number): number => 60 * 60 * 24 * days
-```
-</details>
  
 ## NodeJS
 
