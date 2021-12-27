@@ -7,7 +7,7 @@ Many of these documents may also be found on the [RedwoodJS forum](https://commu
 
 * [PasswordStrengthField](./PasswordStrengthField)
 * [Relation Middleware](./relation-middleware)
-* [Testing Forms](./testing-forms-source/README.md)
+* [Testing Forms](./testing-forms-source)
 * [Twin.Macro and Emotion](./twin-macro-emotion.md) ([Twin](https://github.com/ben-rogerson/twin.macro) | [Emotion](https://github.com/emotion-js/emotion)) (outdated)
 * [Validators](./validators.md)
 * [Utility Functions](./util.md)
