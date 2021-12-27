@@ -1,6 +1,6 @@
 # Password Strength Field
 
-This component uses [`zxcvbn-ts`](https://zxcvbn-ts.github.io/zxcvbn/) and [Redwood's `PasswordField`](https://redwoodjs.com/docs/forms.html#overview) to validate a password meets a configurable, minimum unguessable-rating.
+This component uses [`zxcvbn-ts`](https://zxcvbn-ts.github.io/zxcvbn/) and [Redwood's `PasswordField`](https://redwoodjs.com/docs/forms.html#overview) to validate a password meets a configurable, minimum unguessability-rating.
 
 It will also display a "strength-meter", hinting to the end-user their current password's releative level of unguessability.
 
