@@ -187,5 +187,5 @@ export const randomStr = (length: number, chars: string = RandomCharacters) => {
 
  ---
  
- > \* - The generated string will have all the nessecary steps taken to ensure high-entropy generation, given the constraints imposed by the respective environments and access to entropic data provided by the underlying machine.
+ > \* - The generated string will have all the nessecary steps taken to ensure high-entropy generation, given the constraints imposed by the respective environments and the access to entropic data provided by the underlying machine.
  
