@@ -4,9 +4,7 @@ This component uses [`zxcvbn-ts`](https://zxcvbn-ts.github.io/zxcvbn/) and [Redw
 
 It will also display a "strength-meter", hinting to the end-user their current password's releative level of unguessability.
 
-> This directory also contains `lib/zxcvbn.ts`. It should be placed at `src/lib/zxcvbn.ts`.
-> 
-> It contains a function which will [lazy load zxcvbn's dictionaries](https://zxcvbn-ts.github.io/zxcvbn/guide/lazy-loading/) when this component is used, helping to boost your application's performance.
+> This directory also contains `lib/zxcvbn.ts`. It should be placed at `src/lib/zxcvbn.ts`. It contains a function which will [lazy load zxcvbn's dictionaries](https://zxcvbn-ts.github.io/zxcvbn/guide/lazy-loading/) when this component is used, helping to boost your application's performance.
 
 ## Dependencies
 
