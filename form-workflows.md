@@ -1,4 +1,4 @@
-# Form Workflow
+# Form Workflows
 
 [RedwoodJS provides](https://redwoodjs.com/docs/forms.html#overview) a number of ready-to-use React-components for building forms.
 
