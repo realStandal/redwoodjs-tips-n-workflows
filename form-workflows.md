@@ -72,4 +72,4 @@ As with the form example above, I'm taking the opportunity to specify my button'
 
 ## Password Gussability Strength
 
-See the [respective document](../PasswordStrengthField.tsx) for instructions and details.
+See the [respective document](./PasswordStrengthField.tsx) for instructions and details.
