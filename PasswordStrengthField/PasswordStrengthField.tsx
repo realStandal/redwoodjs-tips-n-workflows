@@ -23,15 +23,14 @@ interface PasswordStrengthFieldProps
 }
 
 export default ({
+  name,
   validation: { strength: validateStrength, ...validation },
   ...props
 }: PasswordStrengthFieldProps) => {
-  const fields = useWatch() as { password?: string }
+  const password = useWatch({ name })
 
-  const [currentPassword, setCurrentPassword] = useState<string>('')
   const [strength, setStrength] = useState<ZxcvbnResult>()
 
-  // Load zxcvbn's options when the component mounts.
   useEffect(() => {
     const _ = async () => {
       await loadZxcvbn()
@@ -40,27 +39,21 @@ export default ({
     _()
   }, [])
 
-  // When `fields` changes, re-compute the strength of the given password.
-  // For performance reasons, this computation only takes place in certain situations.
   useEffect(() => {
-    const getStrength = async (password: string) => {
+    const getStrength = async () => {
       const res = await zxcvbn(password)
       setStrength(res)
     }
 
-    if (typeof fields === 'object') {
-      const { password } = fields
-
-      if (typeof password === 'string' && password !== currentPassword) {
-        setCurrentPassword(password)
-        getStrength(password)
-      }
+    if (typeof password === 'string') {
+      getStrength()
     }
-  }, [currentPassword, fields, setCurrentPassword, setStrength])
+  }, [password, setStrength])
 
   return (
     <>
       <PasswordField
+        name={name}
         validation={{
           validate: () =>
             strength?.score >= validateStrength.value ||
