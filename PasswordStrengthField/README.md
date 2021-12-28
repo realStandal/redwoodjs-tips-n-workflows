@@ -9,6 +9,7 @@ It will also display a "strength-meter", hinting to the end-user their current p
 ## Dependencies
 
 * [zxcvbn-ts](https://zxcvbn-ts.github.io/zxcvbn/)
+* [i18next](https://redwoodjs.com/docs/cli-commands#setup)
 * [TailwindCSS](https://redwoodjs.com/docs/webpack-configuration.html#tailwind-css) (changes to swap out located in `PasswordStrengthField.css`)
 * [postcss-nested](https://github.com/postcss/postcss-nested) (changes to swap out located in `PasswordStrengthField.css`)
 * [clsx]() (optional, with slight modification)
