@@ -12,3 +12,26 @@ It will also display a "strength-meter", hinting to the end-user their current p
 * [TailwindCSS](https://redwoodjs.com/docs/webpack-configuration.html#tailwind-css) (changes to swap out located in `PasswordStrengthField.css`)
 * [postcss-nested](https://github.com/postcss/postcss-nested) (changes to swap out located in `PasswordStrengthField.css`)
 * [clsx]() (optional, with slight modification)
+
+## Example Use
+
+> See [`result.score`](https://zxcvbn-ts.github.io/zxcvbn/guide/getting-started/#output) for an explanation as to the expected values of `value`, used in the strength validation below.
+
+```TSX
+export const MyPage = () => {
+  return (
+    <PasswordStrengthField
+      autoComplete="new-password"
+      name="password"
+      // ...
+      validation={{
+        strength: {
+          message: 'Your password does not meet the minimum strength requirement.',
+          value: 3, // my recommended "green zone"
+        },
+        // ...
+      }}
+    />
+  )
+}
+```
