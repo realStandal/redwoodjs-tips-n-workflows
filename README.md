@@ -5,6 +5,7 @@ Many of these documents may also be found on the [RedwoodJS forum](https://commu
 
 ## Table of Contents
 
+* [Atomic: UI Workflow](./atomic.md#atomic)
 * [PasswordStrengthField](./PasswordStrengthField)
 * [Relation Middleware](./relation-middleware)
 * [Testing Forms](./testing-forms-source)
