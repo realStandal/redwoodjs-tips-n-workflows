@@ -5,14 +5,21 @@ Many of these documents may also be found on the [RedwoodJS forum](https://commu
 
 ## Table of Contents
 
-* [Atomic: UI Workflow](./atomic.md#atomic)
-* [PasswordStrengthField](./PasswordStrengthField)
-* [Relation Middleware](./relation-middleware)
-* [Testing Forms](./testing-forms-source)
-* [Validators](./validators.md)
-* [`useColumnBreakpoint`](./useColumnBreakpoint.md)
-* [Utility Functions](./util.md)
+* API
+  * Middleware 
+    * [Relation Middleware](./relation-middleware)
+  * [Validators](./validators.md)
+  * [Utility](./util.md)
+* Web
+  * "Blog" Entries
+    * [Atomic: UI Workflow](./atomic.md#atomic)
+    * [Testing Forms](./testing-forms-source)
+  * Components
+    * [`<PasswordStrengthField>`](./PasswordStrengthField) 
+  * Hooks
+    * [`useColumnBreakpoint`](./useColumnBreakpoint.md)
+    * [`useToast`](./useToast)
 
-### Outdated
+### Archive
 
 * [Twin.Macro and Emotion](./twin-macro-emotion.md) ([Twin](https://github.com/ben-rogerson/twin.macro) | [Emotion](https://github.com/emotion-js/emotion))
