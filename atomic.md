@@ -4,6 +4,12 @@ This document provides links and installation steps for _Atomic_: a workflow for
 
 > Just to make sure it's clear: You don't _need_ to use every-single dependency Atomic has selected for you. It's more than appropriate to mix-and-match based on your application's individual needs - or use a technology more familiar to you (and your team).
 
+## Iconography
+
+* [Bootstrap Icons](https://icons.getbootstrap.com/)
+* [Heroicons](https://heroicons.com/)
+* [Material Community Icons](https://materialdesignicons.com/) (Fallback)
+
 ## Dependencies
 
 Atomic suggests for your application additional dependencies, each providing a unique set of features which can be interoperated together. These packages have been selected for their: re-usability, open licenses, community support, and adherence to the [separation of concerns principle](https://en.wikipedia.org/wiki/Separation_of_concerns).
