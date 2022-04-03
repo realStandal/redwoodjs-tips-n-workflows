@@ -1,0 +1,2 @@
+- Click to goto files (working for all file-types)
+- Automatic imports which use the absolute paths provided by RW
