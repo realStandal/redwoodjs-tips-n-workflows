@@ -20,7 +20,7 @@ Many of these documents may also be found on the [RedwoodJS forum](https://commu
   * Hooks
     * [`useColumnBreakpoint`](./useColumnBreakpoint.md)
     * [`useStateCallback`](./useStateCallback.ts)
-    * [`useToast`](./useToast)
+    * [`useToast`](./useToast.ts)
 
 ### To-be-written
 
