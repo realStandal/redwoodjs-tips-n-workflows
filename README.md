@@ -19,6 +19,7 @@ Many of these documents may also be found on the [RedwoodJS forum](https://commu
     * [`<PasswordStrengthField>`](./PasswordStrengthField) 
   * Hooks
     * [`useColumnBreakpoint`](./useColumnBreakpoint.md)
+    * [`useStateCallback`](./useStateCallback.ts)
     * [`useToast`](./useToast)
 
 ### To-be-written
