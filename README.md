@@ -23,6 +23,7 @@ Many of these documents may also be found on the [RedwoodJS forum](https://commu
     * [`useColumnBreakpoint`](./useColumnBreakpoint.md)
     * [`useStateCallback`](./useStateCallback.ts)
     * [`useToast`](./useToast.ts)
+    * [`useToggle`](./useToggle.ts)
 
 ### To-be-written
 
