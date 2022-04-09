@@ -18,7 +18,8 @@ Many of these documents may also be found on the [RedwoodJS forum](https://commu
     * [Form Workflows](./form-workflows.md#form-workflows) (Dated)
     * [Testing Forms](./testing-forms-source)
   * Components
-    * [`<PasswordStrengthField>`](./PasswordStrengthField) 
+    * [`<PasswordStrengthField>`](./PasswordStrengthField)
+      * Demonstrates building user-land `<Form>` components which have custom `validation={}` options.
   * Hooks
     * [`useColumnBreakpoint`](./useColumnBreakpoint.md)
     * [`useStateCallback`](./useStateCallback.ts)
