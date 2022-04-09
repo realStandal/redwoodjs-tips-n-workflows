@@ -4,6 +4,20 @@ This document provides links and installation steps for _Atomic_: a workflow for
 
 > Just to make sure it's clear: You don't _need_ to use every-single dependency Atomic has selected for you. It's more than appropriate to mix-and-match based on your application's individual needs - or use a technology more familiar to you (and your team).
 
+## Extensions
+
+The following VSCode extensions should be _added_ to your application's existing `.vscode/extensions.json` file.
+
+```YAML
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "heybourn.headwind",
+    "vunguyentuan.vscode-postcss"
+  ]
+}
+```
+
 ## Iconography
 
 * [Bootstrap Icons](https://icons.getbootstrap.com/)
