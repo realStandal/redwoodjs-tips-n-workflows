@@ -18,6 +18,20 @@ The following VSCode extensions should be _added_ to your application's existing
 }
 ```
 
+Then, setup your project's `file.associations` - done by editing your application's `.vscode/settings.json` file.
+
+```YAML
+{
+  ...
+  "files.associations": {
+    "*.css": "postcss",
+    "*.sass": "postcss",
+    "*.scss": "postcss"
+  },
+  ...
+}
+```
+
 ## Iconography
 
 * [Bootstrap Icons](https://icons.getbootstrap.com/)
