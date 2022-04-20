@@ -45,7 +45,7 @@ Then, setup your project's `file.associations` - done by editing your applicatio
 
 ## Dependencies
 
-Atomic suggests for your application additional dependencies, each providing a unique set of features which can be interoperated together. These packages have been selected for their: re-usability, open licenses, community support, and adherence to the [separation of concerns principle](https://en.wikipedia.org/wiki/Separation_of_concerns).
+Atomic suggests for your application additional dependencies, each providing a unique set of features which can be interoperated together. These packages have been selected for their: re-usability, open licenses, community support, and (rough) adherence to the [separation of concerns principle](https://en.wikipedia.org/wiki/Separation_of_concerns).
 
 * [clsx](https://github.com/lukeed/clsx#readme) - (a tiny) Utility for constructing `className` strings conditionally.
 * [Floating UI](https://github.com/floating-ui/floating-ui#readme) - Low-level library for positioning "floating" elements like tooltips, popovers, dropdowns, menus and more.
