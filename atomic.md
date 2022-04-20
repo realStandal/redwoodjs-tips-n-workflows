@@ -34,6 +34,11 @@ Then, setup your project's `file.associations` - done by editing your applicatio
 
 ## Iconography
 
+> Pending further steps for working with these icons in RedwoodJS.
+> - [ ] - File structure
+> - [ ] - Standardizing `<svg>` attributes
+> - [ ] - Copy, don't install
+
 * [Bootstrap Icons](https://icons.getbootstrap.com/)
 * [Heroicons](https://heroicons.com/)
 * [Material Community Icons](https://materialdesignicons.com/) (Fallback)
