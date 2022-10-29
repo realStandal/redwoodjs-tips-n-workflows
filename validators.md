@@ -72,24 +72,30 @@ export const valObjectId = (val: unknown, message: string) => {
 
 #### `valUUID`
  
-Validate a value is a [v4 UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)).
+Validate a value is a [v4 UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) using the [`uuid` package](https://www.npmjs.com/package/uuid).
   
 <details>
  <summary>Show Code</summary>
  
 ```TypeScript
-import { validate as validateUUID } from 'uuid'
-import { validate, validateWith } from '@redwoodjs/api'
+import { validate as isUUID, version as getUUIDVersion } from 'uuid'
+
+import { ServiceValidationError } from '@redwoodjs/api'
 
 /**
- * Validates the given `val` is a valid v4 UUID.
+ * Validates the given `value` is a [version 4 UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)).
  *
- * @param val
- * @param message An error message when `val` is not a v4 UUID.
+ * @param value The value to assert is a v4 UUID.
+ * @param message The error message, thrown if `value` is not a UUID.
  */
-export const valUUID = (val: unknown, message: string) =>
-  validateWith(() => {
-    if (typeof val !== 'string' || !validateUUID(val)) throw message
-  })
+export const validateUUID = (value: unknown, message = 'Invalid ID') => {
+  if (
+    typeof value !== 'string' ||
+    !isUUID(value) ||
+    getUUIDVersion(value) !== 4
+  ) {
+    throw new ServiceValidationError(message)
+  }
+}
 ```
 </details>
