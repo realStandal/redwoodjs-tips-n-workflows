@@ -17,11 +17,7 @@ COPY web web
 
 COPY .nvmrc .
 COPY .yarnrc.yml .
-COPY ecosystem.config.js .
-COPY graphql.config.js .
-COPY jest.config.js .
 COPY package.json .
-COPY prettier.config.js .
 COPY redwood.toml .
 COPY yarn.lock .
 
@@ -29,10 +25,7 @@ RUN \
   yarn install --immutable && \
   yarn cache clean
 
-ARG GUIDE_URL
-ARG SENTRY_DSN
-ARG SITE_URL
-ARG STRIPE_PUBLISHABLE_KEY
+ARG WEB_SIDE_BUILD_ENV_VARS
 
 RUN yarn rw build --verbose
 
