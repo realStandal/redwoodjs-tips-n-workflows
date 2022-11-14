@@ -29,7 +29,10 @@ RUN \
   yarn install --immutable && \
   yarn cache clean
 
-ARG WEB_BUILD_ARG
+ARG GUIDE_URL
+ARG SENTRY_DSN
+ARG SITE_URL
+ARG STRIPE_PUBLISHABLE_KEY
 
 RUN yarn rw build --verbose
 
@@ -40,6 +43,7 @@ FROM node:16-slim as api
 # See: https://github.com/prisma/prisma/issues/8478
 RUN apt-get update
 RUN apt-get install -y curl openssl
+
 # RUN apk --no-cache add curl -- Re-add once the above issue is resolved
 
 WORKDIR /app
@@ -64,6 +68,7 @@ RUN \
   yarn cache clean
 
 COPY --from=build /app/api/dist api/dist
+COPY --from=build /app/api/templates api/templates
 COPY --from=build /app/node_modules/.prisma node_modules/.prisma
 
 USER node
@@ -99,3 +104,4 @@ EXPOSE 8080
 HEALTHCHECK --interval=5s CMD curl -f http://localhost:8080
 
 LABEL org.opencontainers.image.source=$SOURCE
+
