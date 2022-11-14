@@ -6,7 +6,8 @@ Many of these documents may also be found on the [RedwoodJS forum](https://commu
 ## Table of Contents
 
 * DX
-  * [Modified `settings.json`](./settings.json) 
+  * [Modified `settings.json`](./settings.json)
+  * [Dockerfile](./Dockerfile)
 * API
   * Middleware 
     * [Relation Middleware](./relation-middleware)
