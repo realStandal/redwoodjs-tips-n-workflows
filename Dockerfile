@@ -1,14 +1,11 @@
-ARG SOURCE=https://github.com/org/repo
-
-# --
-
 FROM node:16-slim as build
-
-WORKDIR /app
 
 # See: https://github.com/prisma/prisma/issues/8478
 RUN apt-get update
 RUN apt-get install -y openssl
+
+WORKDIR /app
+
 
 COPY .yarn .yarn
 COPY api api
@@ -17,6 +14,7 @@ COPY web web
 
 COPY .nvmrc .
 COPY .yarnrc.yml .
+COPY graphql.config.js .
 COPY package.json .
 COPY redwood.toml .
 COPY yarn.lock .
@@ -25,7 +23,7 @@ RUN \
   yarn install --immutable && \
   yarn cache clean
 
-ARG WEB_SIDE_BUILD_ENV_VARS
+ARG WEB_ENV_VAR
 
 RUN yarn rw build --verbose
 
@@ -35,66 +33,43 @@ FROM node:16-slim as api
 
 # See: https://github.com/prisma/prisma/issues/8478
 RUN apt-get update
-RUN apt-get install -y curl openssl
-
-# RUN apk --no-cache add curl -- Re-add once the above issue is resolved
+RUN apt-get install -y openssl wget
 
 WORKDIR /app
-RUN chown -R node /app
 
 COPY .yarn .yarn
 
-COPY .nvmrc .
 COPY .yarnrc.yml .
-COPY ecosystem.config.js .
-COPY graphql.config.js .
 COPY package.json .
 COPY redwood.toml .
 COPY yarn.lock .
 
 COPY api/package.json .
 COPY api/server.config.js .
+COPY api/config/ecosystem.config.js .
 
 RUN \
   npm install -g pm2 && \
   yarn workspaces focus --production api && \
   yarn cache clean
 
+COPY api/templates api/templates
+
 COPY --from=build /app/api/dist api/dist
-COPY --from=build /app/api/templates api/templates
 COPY --from=build /app/node_modules/.prisma node_modules/.prisma
 
-USER node
-
 EXPOSE 8911
-ENTRYPOINT [ "pm2-runtime", "start", "ecosystem.config.js" ]
+ENTRYPOINT [ "pm2-runtime", "start", "api/config/ecosystem.config.js" ]
 
-HEALTHCHECK --interval=5s CMD curl -f http://localhost:8911/graphql/health
-
-LABEL org.opencontainers.image.source=$SOURCE
+HEALTHCHECK --interval=5s CMD wget --no-verbose --tries=1 --spider http://localhost:8911/graphql/health || exit
 
 # --
 
-FROM nginx:1.23.0-alpine as web
+FROM caddy:2.6.2-alpine as web
 
-RUN apk --no-cache add curl
-
-RUN \
-  chown -R nginx /etc/nginx && \
-  chown -R nginx /usr/share/nginx && \
-  chown -R nginx /var/cache/nginx && \
-  chown -R nginx /var/log/nginx && \
-  touch /var/run/nginx.pid && \
-  chown nginx /var/run/nginx.pid
-
-COPY web/config/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /app/web/dist /usr/share/nginx/html
-
-USER nginx
+COPY web/config/Caddyfile /etc/caddy/Caddyfile
+COPY --from=build /app/web/dist /srv
 
 EXPOSE 8080
 
-HEALTHCHECK --interval=5s CMD curl -f http://localhost:8080
-
-LABEL org.opencontainers.image.source=$SOURCE
-
+HEALTHCHECK --interval=5s CMD wget --no-verbose --tries=1 --spider http://localhost:8080 || exit
